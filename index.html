@@ -234,6 +234,7 @@ body{font-family:'Cairo',sans-serif;background:radial-gradient(circle at top rig
 @media (max-width:768px){
   :root{--ctrl-h:64px;}
   html,body{height:100%;overflow:hidden}
+  .slides-wrapper{overflow:hidden;position:relative;}
   body{font-size:14px}
   .o1{width:180px;height:180px;top:-30px;right:-30px}
   .o2{width:220px;height:220px;left:-60px;bottom:-60px}
@@ -254,22 +255,26 @@ body{font-family:'Cairo',sans-serif;background:radial-gradient(circle at top rig
     padding:66px 8px calc(var(--ctrl-h) + env(safe-area-inset-bottom) + 12px);
     align-items:flex-start;
     overflow-y:auto;
+    overflow-x:hidden;
     -webkit-overflow-scrolling:touch;
+    /* allow content to be taller than viewport */
+    height:100%;
   }
   .frame{
     width:100%;
     height:auto;
     min-height:auto;
+    max-height:none;
     padding:16px 14px 20px;
     border-radius:20px;
-    /* no fixed height — grows with content */
+    overflow:visible;
   }
   .slide-index{top:12px;left:12px;font-size:11px;padding:5px 8px}
   .tag{font-size:11px;padding:7px 11px;margin-bottom:10px}
 
-  .hero,.dual{grid-template-columns:1fr;gap:12px;height:auto}
+  .hero,.dual{grid-template-columns:1fr;gap:12px;height:auto;align-items:start}
   .visual-wrap{order:-1}
-  .ring-stage{max-width:170px;width:min(170px,56vw)}
+  .ring-stage{max-width:150px;width:min(150px,48vw)}
   .core strong{font-size:28px}
   .core span{font-size:11px}
   .chip{display:none}
@@ -328,6 +333,7 @@ body{font-family:'Cairo',sans-serif;background:radial-gradient(circle at top rig
 
 @media (max-width:480px){
   .slide{padding-top:66px;padding-left:8px;padding-right:8px;}
+  .slides-wrapper{overflow:visible;}
   .frame{padding:16px 14px 18px}
   .title{font-size:26px}
   .section-head h2,
